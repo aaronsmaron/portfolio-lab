@@ -1,0 +1,104 @@
+/* Portfolio Lab — dark theme, mobile first. Colors live in variables so you can re-theme in one place. */
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1e222b;
+  --line: #2a2f3a;
+  --text: #e8eaee;
+  --muted: #8a8f98;
+  --accent: #4f8cff;
+  --pos: #2bb673;
+  --neg: #e5484d;
+  --warn: #f5a524;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h2 { font-size: 1.05rem; margin: 0 0 .75rem; }
+.muted { color: var(--muted); }
+.small { font-size: .82rem; }
+.pad { padding: 1rem; }
+.pos { color: var(--pos); }
+.neg { color: var(--neg); }
+.hint { color: var(--muted); font-size: .85rem; margin: .5rem 0 0; line-height: 1.4; }
+
+/* Header + tabs */
+.top { display: flex; align-items: center; justify-content: space-between; padding: .9rem 1rem .4rem; max-width: 1100px; margin: 0 auto; }
+.brand { font-size: 1.15rem; letter-spacing: .2px; }
+.brand b { color: var(--accent); }
+.tabs { display: flex; gap: .25rem; overflow-x: auto; padding: 0 1rem .5rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.tabs a { color: var(--muted); padding: .5rem .8rem; border-radius: 8px; white-space: nowrap; }
+.tabs a.active { color: var(--text); background: var(--panel-2); }
+.tabs a:hover { text-decoration: none; color: var(--text); }
+main { max-width: 1100px; margin: 0 auto; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+.foot { text-align: center; color: var(--muted); font-size: .75rem; padding: 1.5rem 1rem 2rem; }
+
+/* Blocks */
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: .8rem 1rem; display: flex; flex-direction: column; gap: .25rem; }
+.card span { color: var(--muted); font-size: .8rem; }
+.card strong { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.grid2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 760px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+.chart-box { position: relative; height: 240px; }
+.chart-box.tall { height: 340px; }
+.notice { border-radius: 10px; padding: .7rem .9rem; font-size: .9rem; }
+.notice.info { background: rgba(79,140,255,.12); border: 1px solid rgba(79,140,255,.35); }
+.notice.warn { background: rgba(245,165,36,.12); border: 1px solid rgba(245,165,36,.4); }
+.welcome { text-align: center; padding: 2rem 1rem; }
+.checks { margin: 0; padding-left: 1.1rem; line-height: 1.6; }
+
+/* Forms */
+input, select, textarea, button, .btn, .file-btn {
+  font: inherit; color: var(--text); background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 8px; padding: .55rem .7rem;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+textarea { width: 100%; resize: vertical; }
+button, .btn, .file-btn { background: var(--accent); border-color: var(--accent); color: #fff; cursor: pointer; display: inline-block; }
+button.ghost { background: transparent; border-color: var(--line); color: var(--text); }
+button.icon { background: transparent; border: none; color: var(--muted); padding: .2rem .4rem; }
+button.icon:hover { color: var(--neg); }
+button.danger { background: var(--neg); border-color: var(--neg); }
+.row-form { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; align-items: end; }
+.row-form input, .row-form select { flex: 1 1 120px; min-width: 0; }
+.row-form textarea { flex: 1 1 100%; }
+.row-form label input { flex: none; }
+.row-form label { display: flex; flex-direction: column; gap: .3rem; font-size: .8rem; color: var(--muted); flex: 1 1 150px; }
+.inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .75rem; margin-top: .75rem; }
+.inputs label { display: flex; flex-direction: column; gap: .3rem; font-size: .8rem; color: var(--muted); }
+.presets { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: .55rem .5rem; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child, td:nth-child(2) { text-align: left; }
+th { color: var(--muted); font-weight: 500; font-size: .8rem; }
+table.grid td, table.grid th { text-align: center; }
+table.grid td.good { background: rgba(43,182,115,.18); }
+table.grid td.meh { background: rgba(245,165,36,.10); }
+table.grid td.bad { background: rgba(229,72,77,.18); }
+table.grid td.base { outline: 2px solid var(--accent); outline-offset: -2px; font-weight: 600; }
+
+/* Watchlist cards */
+.card-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+.card-head h2 { margin: 0; }
+.price { text-align: right; display: flex; flex-direction: column; }
+.price strong { font-size: 1.3rem; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: .5rem; margin: .9rem 0; }
+.metrics div { background: var(--panel-2); border-radius: 8px; padding: .5rem .6rem; display: flex; flex-direction: column; gap: .15rem; }
+.metrics span { color: var(--muted); font-size: .75rem; }
+.range { margin: .4rem 0 .8rem; }
+.range .bar { position: relative; height: 6px; background: linear-gradient(90deg, var(--neg), var(--warn), var(--pos)); border-radius: 3px; margin-top: .4rem; }
+.range .bar i { position: absolute; top: -4px; width: 4px; height: 14px; background: var(--text); border-radius: 2px; transform: translateX(-2px); }
+.target { margin-bottom: .8rem; }
+.thesis { margin-top: .3rem; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: .6rem; }
+.card-foot button { margin-left: .3rem; }
